@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    width: 100vw;
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+
+}
+header {
+    padding: 3vh 0;
+    color: antiquewhite;
+    background-color: firebrick;
+}
+header h1{
+    font-size: calc(10px + 2vw);
+    margin: 0;
+    padding: 0;
+
+}
+header p{
+    margin: 2%;
+    font-size: calc(6px + 2vw)
+}
+#nav-main{
+    flex-direction:column;
+    justify-content: center;
+}
+
+
+main{
+    font-family: "Comic Sans MS", cursive;
+    text-align: center;
+    background-color: rgb(224,224,224);
+    padding: 2vh 0;
+    height: 100%;
+    margin: 0;
+
+
+}
+main h1{
+    font-size: calc(2px + 4vw);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+main h2{
+    font-size: calc(2px + 3vw);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+footer{
+
+    background-color: firebrick;
+    color: antiquewhite;
+    padding: 2vh 2vw;
+    font-size: calc(2px + 2vw);
+    height: 100vh;
+}
+footer a{
+    color: blueviolet;
+    text-align: center;
+    font-size: calc(2px + 2vw);
+}
+
+@media screen and (max-width: 1000px){
+    #nav-main{
+        flex-direction: column;
+    }
+    nav, main{
+        width: 100%;
+    }
+    nav ul{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+}
+@media screen and (max-width: 750px){
+    #nav-main{
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    header, footer {
+        text-align: center;
+    }
+}
+button{
+    font-family: "Comic Sans MS", cursive;
+    margin: 2%;
+    font-size: calc(2px + 2vw);
+    color: rgb(90,150,144);
+}
+label{
+    font-family: "Comic Sans MS", cursive;
+    margin: 2%;
+    font-size: calc(2px + 2vw);
+    color: rgb(90,150,144);
+}
+input{
+    font-family: "Comic Sans MS", cursive;
+    margin: 2%;
+    width:10vw;
+    height: 5vh;
+    font-size: calc(2px + 2vw);
+}
+ul{
+    list-style: none;
+    display:inline;
+    font-size: calc(2px + 2vw);
+}
+ol{
+    font-size: calc(2px + 2vw);
+    margin: 5%;
+    padding: 0;
+    text-align: center;
+}
+#recipe1, #recipe2, #recipe3, #recipe4{
+    margin-left: 5vw;
+    display: none;
+    height: auto;
+}
+.title{
+    margin: 5vh 0;
+}
+.ingredients{
+    margin: 1vh 0;
+}
+.directions{
+    margin: 4vh 0;
+
+
+}
+img{
+    display:block;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+#output{
+    margin: 5%;
+    color: rgb(90,150,144);
+    text-align: center;
+    font-size: calc(2px + 4vw);
+}
+

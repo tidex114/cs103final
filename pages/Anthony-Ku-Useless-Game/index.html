@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../globalHomePageAttach/global-style.css">
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <title>Useless Game | Useless Engine</title>
+</head>
+<body>
+<header>
+    <h1>Useless</h1>
+    <p>Useless Engine is a collection of useless websites</p>
+</header>
+<main>
+    <h1>Play Rock Paper Scissors</h1>
+    <p id = "message"></p>
+    <h3>Robot's Answer</h3>
+    <img id="robot-output" class = "images">
+
+    <h3>Your Answer</h3>
+    <img id="human-output" class = "images">
+
+    <button onClick = "play('rock')" id ="rock-button">
+        <img src = "../src/rockemoji.png" alt = "rock" class = "button-images">
+    </button>
+    <button onClick = "play('scissors')" id ="scissors-button">
+        <img src = "../src/scissorsemoji.png" alt = "scissors" class = "button-images">
+    </button>
+    <button onClick = "play('paper')" id ="paper-button">
+        <img src = "../src/paperemoij.png" alt = "paper" class = "button-images">
+    </button>
+    <button id="reset-button" onclick="resetGame()">Reset</button>
+</main>
+
+<footer>
+    <p> All rights reserved</p>
+</footer>
+<!-- added by Ilia -->
+<script src="../../globalHomePageAttach/global-functions.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+

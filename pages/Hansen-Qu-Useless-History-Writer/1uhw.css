@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    font-family: 'Inter', sans-serif;
+    background-color: #111827;
+    color: #F3F4F6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+.content-wrapper {
+    width: 100%;
+    max-width: 672px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #818CF8;
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 20px;
+    color: #D1D5DB;
+    margin-bottom: 32px;
+}
+
+
+#generate-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #818CF8;
+    color: #111827;
+
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    /* I add a cursor here to show the "hand" icon on hover */
+}
+
+
+#generate-btn:hover {
+    background-color: #6366F1;
+}
+
+
+#history-output-container {
+    margin-top: 20px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#history-output {
+    width: 100%;
+    background-color: #1F2937;
+    color: #E5E7EB;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #374151;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    text-align: left;
+    font-family: "Times New Roman", serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.75;
+    box-sizing: border-box;
+}
+
+
+#history-output strong {
+    color: #818CF8;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 32px;
+    }
+    p {
+        font-size: 16px;
+    }
+    #history-output {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,272 @@
+/* =========================================================
+   GLOBAL-STYLE.CSS
+   : Applies to ALL pages in this project.
+       - Global small red home button
+       - Global animations
+       - Universal UI aesthetic design
+
+   Authors:
+       - Hongyuan_Zhang U96564776 hzhang25@bu.edu
+   ========================================================= */
+
+/* =========================================================
+    NOTES OF CONTENT
+    : Following conclude the content that is not taught or
+    mentioned in the range of CS103 course content.
+
+    1. clamp()
+    : Use to pick a responsive value that grows or shrinks with screen size,
+    but never goes below a minimum or above a maximum.
+
+    How to use:
+        clamp(minimum, preferred, maximum)
+
+    Example use in this file:
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+
+        minimum: 1.1rem
+        preferred: 2vw
+        maximum: 1.4rem
+
+        'meaning: size scales based on 2% of the screen width,
+         but never smaller than 1.1rem and never larger than 1.4rem.'
+
+    2. radial-gradient()
+    : Use to generate a circular or elliptical blend of colors.
+
+    How to use:
+        radial-gradient(shape position, color-stop, color-stop,...)
+
+    Example use in this file:
+        background: radial-gradient(circle at 30% 30%,
+                                   #ff6a6a 0%,
+                                   #ff2c2c 40%,
+                                   #8c0505 100%);
+
+        shape: circle
+        position: at 30% 30% (slightly top-left)
+        first color: #ff6a6a at 0% (center)
+        second color: #ff2c2c at 40%
+        third color: #8c0505 at 100% (outer edge)
+
+        'meaning: a circular gradient whose bright center starts near
+         the top-left and smoothly transitions into deep red edges.'
+
+    3. ::before
+    : Create a virtual element inserted before the actual content of the element.
+    does NOT exist in HTML; it is purely CSS-generated.
+
+    How to use:
+        selector::before {
+            content: "";
+            ...
+        }
+
+    Example use in this file:
+        .big-red-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0.5rem 0.9rem 2.5rem 0.9rem;
+            border-radius: 999px;
+        }
+
+        selector: .big-red-btn
+        pseudo-element: ::before
+        content: "" (required)
+        purpose: adds highlight layer on top of the button
+
+        'meaning: before the real button text, add a glowing highlight
+         layer that enhances the 3D appearance.'
+
+    4. ::after
+    : Same as ::before, but inserted *after* the element’s content.
+
+   How to use:
+        selector::after {
+            content: "";
+            ...
+        }
+
+    Example use in this file:
+        .big-red-btn::after {
+            content: "";
+            position: absolute;
+            bottom: -2rem;
+            left: 10%;
+            height: 3.75rem;
+        }
+
+        selector: .big-red-btn
+        pseudo-element: ::after
+        content: "" (required)
+        purpose: adds bottom shadow / side edge effect
+
+        'meaning: adds an extra decorative element behind the button,
+         creating depth and a darker bottom rim.'
+
+    5. :active
+    : Style applied to an element only while it is being pressed.
+
+    How to use:
+        selector:active {
+            ...
+        }
+
+    Example use in this file:
+        .big-red-btn:active {
+            transform: translateY(0.31rem);
+            filter: brightness(0.95);
+        }
+
+        selector: .big-red-btn
+        pseudo-class: :active (while clicking)
+        effect: button moves downward and darkens
+
+        'meaning: create a “press” animation so the button feels
+         tactile when the user clicks it.'
+
+    7. @keyframes
+    : Define custom animations by describing how a property changes
+    from start to end.
+
+    How to use:
+        @keyframes animationName {
+            0% { ... }
+            100% { ... }
+        }
+
+   Example use in this file:
+        @keyframes global-btn-pop {
+            0%   { transform: scale(0.4); opacity: 0; }
+            70%  { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(1.0); }
+        }
+
+        animationName: global-btn-pop
+        keyframes:
+            0%   → small + invisible
+            70%  → overshoot larger
+            100% → settle at final size
+
+        'meaning: the button pops into view with a smooth scale animation
+         that makes it feel lively and responsive.'
+   ========================================================= */
+
+
+
+/* ---------------------------------------------------------
+   GLOBAL SMALL RED HOME BUTTON
+   ---------------------------------------------------------*/
+
+/* Container */
+.global-home-btn {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 9999;
+
+    width: clamp(2.2rem, 4vw, 2.8rem);
+    height: clamp(2.2rem, 4vw, 2.8rem);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    border-radius: 999px;
+    border: 0.12rem solid #8c0505;
+
+    background: radial-gradient(
+            circle at 30% 30%,
+            #ff6a6a 0%,
+            #ff2c2c 40%,
+            #8c0505 100%
+    );
+
+    box-shadow:
+            0 0.25rem 0.625rem rgba(0, 0, 0, 0.6),
+            0 0 8px rgba(255, 0, 0, 0.4);
+
+    /* Animation */
+    animation: global-btn-pop 0.5s ease-out;
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            filter 0.2s ease;
+}
+
+/* Inner ring */
+.global-home-btn::before {
+    content: "";
+    width: 55%;
+    height: 55%;
+    border-radius: 50%;
+    border: 0.12rem solid rgba(0, 0, 0, 0.6);
+
+    background: radial-gradient(
+            circle at 30% 30%,
+            #ffe5e5 0%,
+            #ff9999 45%,
+            #d22020 80%
+    );
+
+    box-shadow:
+            inset 0 0 0.25rem rgba(0, 0, 0, 0.7),
+            0 0 0.19rem rgba(255, 255, 255, 0.4);
+}
+
+/* Hover */
+.global-home-btn:hover {
+    transform: translateY(-0.06rem) scale(1.03);
+    filter: brightness(1.1);
+    box-shadow:
+            0 0.4rem 0.8rem rgba(0, 0, 0, 0.6),
+            0 0 14px rgba(255, 80, 80, 0.6);
+}
+
+/* Click interaction */
+.global-home-btn:active {
+    transform: translateY(0.12rem) scale(0.95);
+    box-shadow: 0 0.13rem 0.31rem rgba(0, 0, 0, 0.6);
+}
+
+/* ---------------------------------------------------------
+   GLOBAL ANIMATIONS
+   ---------------------------------------------------------*/
+
+/* pop-in animation */
+@keyframes global-btn-pop {
+    0% {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+/* global fade-in */
+body {
+    animation: fade-in-page 0.4s ease-out;
+}
+
+@keyframes fade-in-page {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* hover highlight  */
+button:hover {
+    filter: brightness(1.05);
+    transition: filter 0.2s ease;
+}

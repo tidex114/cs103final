@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useless Calculator</title>
+    <link rel="stylesheet" href="../../globalHomePageAttach/global-style.css">
+    <link rel="stylesheet" href="calculator-style.css">
+</head>
+<body>
+
+<header class="header">
+    <!-- Brand and Control Buttons -->
+    <div class="brand">
+        <h1 class="brand__name">Useless Calculator</h1>
+        <p class="brand__subtitle">Calculator</p>
+    </div>
+
+    <!-- Main Controls -->
+    <div class="controls">
+        <button id="demoModeBtn" class="btn toggle">
+            Demo Mode OFF
+        </button>
+
+        <button
+                id="randomSelection"
+                class="btn ghost"
+                type="button">
+            Random Mode
+        </button>
+    </div>
+</header>
+
+<div class="calculator">
+    <div id="calcDisplay" class="calculator__display">0</div>
+
+    <div class="calculator__buttons">
+
+        <button class="btn-op" data-op="clear">C</button>
+        <button class="btn-op" data-op="ce">CE</button>
+        <button class="btn-op" data-op="sign">±</button>
+        <button class="btn-op" data-op="/">÷</button>
+
+        <button class="btn-num" data-num="7">7</button>
+        <button class="btn-num" data-num="8">8</button>
+        <button class="btn-num" data-num="9">9</button>
+        <button class="btn-op" data-op="*">×</button>
+
+        <button class="btn-num" data-num="4">4</button>
+        <button class="btn-num" data-num="5">5</button>
+        <button class="btn-num" data-num="6">6</button>
+        <button class="btn-op" data-op="-">−</button>
+
+        <button class="btn-num" data-num="1">1</button>
+        <button class="btn-num" data-num="2">2</button>
+        <button class="btn-num" data-num="3">3</button>
+        <button class="btn-op" data-op="+">+</button>
+
+        <button class="btn-num zero" data-num="0">0</button>
+        <button class="btn-op" data-op=".">.</button>
+        <button id="equalsBtn" class="btn-op equals">=</button>
+
+    </div>
+</div>
+
+<!-- Demo Panel  -->
+<div id="demoPanel" class="demo-panel hidden">
+    <!-- UI Btn on Panel -->
+    <button
+            class="panel-tab" type="button">
+    </button>
+
+    <div class="demo-panel__static">
+        <h2 id="panelTitle" class="panel-title">Demo Mode</h2>
+        <div class="demo-panel__controls">
+            <button
+                    id="applySelection"
+                    class="btn"
+                    type="button">
+                Apply
+            </button>
+
+            <button
+                    id="clearSelection"
+                    class="btn"
+                    type="button">
+                Clear
+            </button>
+        </div>
+    </div>
+
+    <div class="demo-panel__body">
+        <div id="scroll-container" class="scroll-container">
+            <!-- Interaction Log Section -->
+            <section id="logSection" class="log-section">
+                <div class="log-header">
+                    <h3 class="log-title">Interaction Log</h3>
+                    <button id="clearLogBtn" class="btn ghost" type="button">
+                        Clear Log
+                    </button>
+                </div>
+
+                <div id="logContainer" class="log-container">
+                    <!-- Content will be here -->
+                </div>
+            </section>
+        <!-- Catalog -->
+            <form id="trickSelector">
+                <!-- Input Sabotage -->
+                <fieldset> <!-- Group Element together -->
+                    <legend>Input Sabotage</legend>
+                    <ul class="trick-list">
+                        <li><button type="button" id="trick-swapDigits" class="trick-btn"><span>Swap Digits Occasionally</span></button></li>
+                        <li><button type="button" id="trick-backspaceSabotage" class="trick-btn"><span>Backspace Sabotage</span></button></li>
+                        <li><button type="button" id="trick-randomDelay" class="trick-btn"><span> Delays</span></button></li>
+                    </ul>
+                </fieldset>
+
+                <!-- Layout & Visual Sabotage -->
+                <fieldset>
+                    <legend>Visual Sabotage</legend>
+                    <ul class="trick-list">
+                        <li><button type="button" id="trick-shuffleKeypad" class="trick-btn"><span>Keypad</span></button></li>
+                        <li><button type="button" id="trick-movingButtons" class="trick-btn"><span>Buttons Dodge Cursor</span></button></li>
+                        <li><button type="button" id="trick-invisibleButtons" class="trick-btn"><span>Invisible Buttons</span></button></li>
+                    </ul>
+                </fieldset>
+
+                <!-- Input Method Sabotage -->
+                <fieldset>
+                    <legend>Input Method Sabotage</legend>
+                    <ul class="trick-list">
+                        <li><button type="button" id="trick-pumpingInput" class="trick-btn"><span>Pumping Input</span></button></li>
+                        <li><button type="button" id="trick-angryBirdsInput" class="trick-btn"><span>Birds Input</span> </button></li>
+                        <li><button type="button" id="trick-handCrankGeneratorInput" class="trick-btn"><span>Generator Input</span></button></li>
+                        <li><button type="button" id="trick-tiltingInput" class="trick-btn"><span>Tilting Input</span></button></li>
+                    </ul>
+                </fieldset>
+
+                <!-- Flow -->
+                <fieldset>
+                    <legend>Flow</legend>
+                    <ul class="trick-list">
+                        <li><button type="button" id="randomConfirmModal" class="trick-btn"><span>Random Confirm Modal</span></button></li>
+                        <li><button type="button" id="trick-fakeError" class="trick-btn"><span>Occasional Fake Error</span></button></li>
+                        <li><button type="button" id="trick-opSwap" class="trick-btn"><span>Operation Swap</span></button></li>
+                    </ul>
+                </fieldset>
+            </form>
+        </div>
+        </div>
+
+    <div class="panel-footer">
+        <p class="note muted">
+            Demo Mode lets you manually activate specific trolling behaviors. Only the
+            active tricks will run.
+        </p>
+    </div>
+</div>
+
+<!-- js script here -->
+<!-- added by Ilia -->
+<script src="../../globalHomePageAttach/global-functions.js"></script>
+<script src="calculator-functions.js"></script>
+</body>
+</html>

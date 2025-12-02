@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collections of Useless</title>
+    <link rel="stylesheet" type='text/css' href="homeDesign.css" />
+</head>
+<body>
+<!-- Top bar -->
+<header class="top-bar">
+    <button
+            class="logo-btn"
+            id="logoBtn"
+            aria-label="Open site list"
+            title="Open site list"
+    >
+        <span class="logo-inner"></span>
+    </button>
+    <h1 class="site-title">Collections of Useless</h1>
+</header>
+
+<!-- Navigation panel -->
+<nav class="side-nav" id="sideNav" aria-hidden="true">
+    <h2 class="nav-title">Pick a destination</h2>
+    <ul class="nav-list" id="siteList">
+    </ul>
+</nav>
+
+<!-- overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Main -->
+<main class="main-area">
+    <div class="wrapper">
+        <button class="big-red-btn" id="bigRedBtn">
+            <span class="btn-label">PUSH</span>
+        </button>
+    </div>
+
+    <script src="homeFunctions.js"></script>
+</main>
+</body>
+</html>

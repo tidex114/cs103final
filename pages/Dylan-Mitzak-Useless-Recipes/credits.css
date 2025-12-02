@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: cadetblue;
+    margin: 2%;
+    font-family: "Times New Roman", Times, serif;
+
+}
+h1{
+    padding: 2%;
+    font-size: calc(2px + 4vw);
+}
+p{
+    padding: 2%;
+    font-size: calc(2px + 2vw);
+}
+

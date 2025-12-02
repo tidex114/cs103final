@@ -1,0 +1,631 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Global Setting --- */
+body{
+    font-family: system-ui;
+    color: #d1e4f5;
+    background: #7eadd7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.demo-on {
+    background: #0b2239;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+.demo-panel {
+    overflow-x: visible;
+}
+
+.demo-panel__body, .scroll-container {
+    max-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.scroll-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* --- Header --- */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+    width: 100%;
+    max-width: 1000px;
+    padding: 1rem 1.5rem;
+
+    background: #b9d9fb;
+    border-bottom: 0.3rem solid #96c5f7;
+    box-shadow: 10px 10px #5987b6;
+
+    z-index: 2;
+}
+
+.brand__name{
+    margin: 0 0 4px 0;
+
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+
+    color: #084c8d;
+}
+
+.brand__subtitle{
+    margin-top: 0.5rem;
+
+    font-size: 0.9rem;
+
+    color: #0a1a2f;
+}
+
+.controls{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+/* --- Buttons (BTN) --- */
+.btn{
+    font-size: 0.9rem;
+
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: 2px solid #2f5288;
+
+    background: #095f92;
+    color: #ffffff;
+
+    transition: all 0.35s ease-in-out;
+}
+
+.btn:active, .trick-btn:active{
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn:hover, .trick-btn:hover {
+    box-shadow: 0 0 8px #7c3aed55
+}
+
+.btn:disabled, .trick-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn.toggle {
+    font-weight: 700;
+}
+
+.btn.toggle.active {
+    border-color: #a384f8;
+    color: #ffffff;
+    box-shadow: 0 0 10px #a384f855;
+}
+
+.btn.ghost{
+    color: #c6dcf3;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.btn.ghost:hover {
+    background: rgba(124,58,237,0.2);
+    border-color: #9b69f1;
+    color: #ffffff;
+}
+
+.btn:hover{
+    background: #7c3aed;
+    border-color: #9b69f1;
+    color: #ffffff;
+}
+
+.btn.ghost:hover{
+    color: #e6eef8;
+    background: #7c3aed;
+    border-color: #9b69f1;
+}
+
+.btn, .trick-btn {
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    cursor: pointer;
+}
+
+/* --- Demo Panel Open Close UI BTN --- */
+.panel-tab {
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 60px;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background: #113b64;
+    z-index: 2;
+    transition: background 0.3s ease, transform 0.15s ease;
+
+    pointer-events: auto;
+}
+
+.panel-tab:before {
+    content: ">";
+    display: block;
+    font-weight: 800;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.demo-panel.open .panel-tab:before{
+    content: "<";
+}
+
+.panel-tab:hover {
+    background: #7c3aed;
+    transform: translateY(-50%) scale(1.1);
+}
+.demo-panel.open .panel-tab:hover {
+    background: #a384f8;
+}
+.demo-panel.open .panel-tab {
+    background: #2f5288;
+}
+
+/* --- Fieldset Tricks BTNs --- */
+.trick-btn {
+    position: relative;
+
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+
+    cursor: pointer;
+
+    border: 2px solid #84b8e2;
+    color: #041c36;
+    background: #d9ecfa;
+
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* fill overlay */
+.trick-btn:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+
+    background: #7c3aed;
+
+    transition: width 0.4s ease;
+    z-index: 0;
+}
+
+.trick-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* hover: expand */
+.trick-btn:hover:before {
+    width: 100%;
+}
+
+.trick-btn:hover {
+    color: #1d201f;
+    border-color: #7c3aed;
+
+    transform: translateY(-1px);
+    box-shadow: 0 0 8px #7c3aed55;
+}
+
+/* click press */
+.trick-btn:active {
+    transform: scale(0.97);
+}
+
+/* active/selected state */
+.trick-btn.active:before {
+    width: 100%;
+}
+
+.trick-btn.active {
+    color: #1d201f;
+    border-color: #7c3aed;
+    box-shadow: 0 0 10px #7c3aedaa;
+}
+
+/* disabled */
+.trick-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* --- Demo Panel ---*/
+.scroll-container{
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    padding-right: 1.25rem;
+}
+
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.demo-panel{
+    position: fixed;
+    left: 0;
+    top: 1rem;
+    bottom: 1rem;
+    max-height: 100vh;
+    width: min(420px, 90vw);
+
+    margin: 0;
+    padding: 1rem 1.5rem 1rem 1rem;
+    border: 2px solid #113b64;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /*overflow-x: visible;*/
+    /*overflow-y: hidden;*/
+
+    background: #0c3b64;
+    z-index: 1000;
+
+    transform: translateX(calc(-100% + 22px));
+    transition: transform 0.5s ease;
+    box-shadow: 8px 0 0 #5987b6;
+    pointer-events: none;
+}
+
+.demo-panel.open{
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.panel-close{
+    margin-left: auto;
+}
+
+.demo-panel__static{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+
+    background: inherit;
+    padding: 0.5rem 0.25rem 0.75rem 0.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 4px solid #587592  ;
+}
+
+.panel-title{
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.demo-panel__controls{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: static;
+    top: auto;
+}
+
+.demo-panel__controls .btn{
+    height: 2.25rem;
+    padding: 0 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.demo-panel h2 {
+    font-size: 1.4rem;
+}
+
+.panel-footer{
+    margin-top: 1rem;
+    color: #ffffff;
+}
+
+.btn.toggle.active {
+    background-color: #7c3aed;
+    color: white;
+    border-color: #7c3aed;
+}
+
+/* --- Log Panel ---*/
+.log-section {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.log-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.log-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+#clearLogBtn {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.log-container {
+    max-height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.35rem 0.25rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.log-entry {
+    padding: 0.15rem 0.4rem;
+    margin-bottom: 0.1rem;
+    border-radius: 4px;
+}
+
+.log-entry:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.log-entry:nth-child(even) {
+    background: rgba(0, 0, 0, 0.10);
+}
+
+.log-entry {
+    word-break: break-all;
+}
+
+/* --- Trick List --- */
+.trick-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.trick-btn {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: black;
+    text-align: left;
+    transition: all 0.35s ease;
+    font-size: 0.9rem;
+}
+
+.trick-btn:hover{
+    background: #cab0f7 ;
+    border: 2px solid #7c3aed;
+}
+
+fieldset {
+    border: 2px solid #113b64;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.07);
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-weight: 600;
+    color: #ffffff ;
+    font-size: 1.5rem;
+}
+
+.trick-btn.active {
+    background-color: #7c3aed;
+    color: #ffffff;
+    border-color: #7c3aed;
+}
+
+/* Sub Global Control */
+#demoPanel.hidden {
+    display: none;
+}
+
+/* --- Calculator --- */
+.calculator {
+    margin-top: 2rem;
+    background: #113b64;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 8px 8px #5987b6;
+    width: 320px;
+}
+
+.calculator__display {
+    background: #0b2239;
+    padding: 1rem;
+    font-size: 2.5rem;
+    text-align: right;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    color: #fff;
+    border: 2px solid #2f5288;
+}
+
+.calculator__buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.calculator__buttons button {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 12px;
+    border: 2px solid #2f5288;
+    background: #095f92;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.calculator__buttons button:hover {
+    background: #7c3aed;
+    border-color: #9b69f1;
+}
+
+.calculator__buttons .zero {
+    grid-column: span 2;
+}
+
+.equals {
+    background: #7c3aed;
+    border-color: #a384f8;
+}
+
+/* --- Responsive Window Setting --- */
+@media (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .controls {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .btn {
+        flex: 1 1 45%;
+    }
+
+    .demo-panel {
+        padding: 1rem;
+        margin: 0;
+    }
+
+    fieldset {
+        padding: 0.8rem;
+    }
+
+    .trick-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .brand__name {
+        font-size: 1.3rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .demo-panel {
+        margin: 0.5rem;
+    }
+
+    .panel-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .log-container {
+        max-height: 180px;
+        font-size: 0.78rem;
+    }
+
+    .log-title {
+        font-size: 0.85rem;
+    }
+
+    #clearLogBtn {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.55rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .log-container {
+        max-height: 150px;
+        font-size: 0.76rem;
+    }
+
+    .log-header {
+        flex-direction: row;
+        align-items: center;
+    }
+}

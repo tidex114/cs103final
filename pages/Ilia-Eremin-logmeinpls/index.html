@@ -1,0 +1,254 @@
+<!--
+==============================
+MATERIAL NOT COVERED IN LECTURES
+==============================
+
+<link rel="preconnect" href="https://fonts.googleapis.com"> – prepares a faster connection to Google Fonts.
+<link href="https://fonts.googleapis.com/css2?family=Poppins..."> – loads the external Poppins font.
+aria-live="polite" – tells screen readers to read updates politely.
+aria-describedby="captcha-desc" – connects an input to descriptive text for accessibility.
+role="region" – marks an area as meaningful for assistive technologies.
+aria-label="Developer switch" – gives an accessible name to the dev switch.
+tabindex="0" – makes a non-button element keyboard-focusable.
+<p data-q="7"> – stores the question number for JavaScript.
+<input type="checkbox" hidden> – hides the native checkbox.
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>logmeinpls</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../globalHomePageAttach/global-style.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+
+
+<main class="card">
+    <header class="card-header">
+        <h1>LoginMe</h1>
+        <h3>To proceed to homepage’s content, please, log in.</h3>
+    </header>
+
+    <section>
+        <p data-q="1">
+            <label for="q1">Username</label>
+            <input id="q1" type="text">
+        </p>
+        <p data-q="2">
+            <label for="q2">Password</label>
+            <input id="q2" type="password">
+        </p>
+        <p data-q="3">
+            <label for="q3">Confirm password</label>
+            <input id="q3" type="password">
+        </p>
+        <p data-q="4">
+            <label for="q4">Email address</label>
+            <input id="q4" type="text">
+        </p>
+        <p data-q="5">
+            <label for="q5">Country of residence</label>
+            <input id="q5" type="text">
+        </p>
+        <p data-q="6">
+            <label for="q6">Date of birth (YYYY-MM-DD)</label>
+            <input id="q6" type="text">
+        </p>
+    </section>
+
+    <hr>
+
+    <section>
+        <p data-q="7" class="hidden">
+            <label for="q7">Preferred language</label>
+            <input id="q7" type="text">
+        </p>
+        <p data-q="8" class="hidden">
+            <label for="q8">Time zone</label>
+            <input id="q8" type="text">
+        </p>
+        <p data-q="9" class="hidden">
+            <label for="q9">Gender (optional)</label>
+            <input id="q9" type="text">
+        </p>
+        <p data-q="10" class="hidden">
+            <label for="q10">How did you hear about us?</label>
+            <input id="q10" type="text">
+        </p>
+
+        <p data-q="11" class="hidden">
+            <label for="q11">What browser are you currently using?</label>
+            <input id="q11" type="text">
+        </p>
+        <p data-q="12" class="hidden">
+            <label for="q12">What device are you on right now?</label>
+            <input id="q12" type="text">
+        </p>
+        <p data-q="13" class="hidden">
+            <label for="q13">How many browser tabs are open at this moment?</label>
+            <input id="q13" type="text">
+        </p>
+        <p data-q="14" class="hidden">
+            <label for="q14">Battery percentage of your main device</label>
+            <input id="q14" type="text">
+        </p>
+        <p data-q="15" class="hidden">
+            <label for="q15">Local time where you are</label>
+            <input id="q15" type="text">
+        </p>
+        <p data-q="16" class="hidden">
+            <label for="q16">Upload speed (Mbps)</label>
+            <input id="q16" type="text">
+        </p>
+        <p data-q="17" class="hidden">
+            <label for="q17">The name of your Wi-Fi network</label>
+            <input id="q17" type="text">
+        </p>
+        <p data-q="18" class="hidden">
+            <label for="q18">Date of your last successful login anywhere</label>
+            <input id="q18" type="text">
+        </p>
+        <p data-q="19" class="hidden">
+            <label for="q19">What was the first app you checked today?</label>
+            <input id="q19" type="text">
+        </p>
+        <p data-q="20" class="hidden">
+            <label for="q20">How many unread notifications do you currently have?</label>
+            <input id="q20" type="text">
+        </p>
+
+        <p data-q="21" class="hidden">
+            <label for="q21">What was the Wordle word on July 12, 2022?</label>
+            <input id="q21" type="text">
+        </p>
+        <p data-q="22" class="hidden">
+            <label for="q22">Population of your city in the 2010 census</label>
+            <input id="q22" type="text">
+        </p>
+        <p data-q="23" class="hidden">
+            <label for="q23">Average annual rainfall in your area (mm)</label>
+            <input id="q23" type="text">
+        </p>
+        <p data-q="24" class="hidden">
+            <label for="q24">The third autocomplete result for “why do pigeons” on Google</label>
+            <input id="q24" type="text">
+        </p>
+        <p data-q="25" class="hidden">
+            <label for="q25">Year bubble wrap was invented</label>
+            <input id="q25" type="text">
+        </p>
+        <p data-q="26" class="hidden">
+            <label for="q26">Price of a 3-meter HDMI cable on Amazon today</label>
+            <input id="q26" type="text">
+        </p>
+        <p data-q="27" class="hidden">
+            <label for="q27">Number of tracks on “Random Access Memories” by Daft Punk</label>
+            <input id="q27" type="text">
+        </p>
+        <p data-q="28" class="hidden">
+            <label for="q28">Pantone color of the year 2017</label>
+            <input id="q28" type="text">
+        </p>
+        <p data-q="29" class="hidden">
+            <label for="q29">Height (in meters) of the Eiffel Tower’s Wi-Fi antenna</label>
+            <input id="q29" type="text">
+        </p>
+        <p data-q="30" class="hidden">
+            <label for="q30">Total runtime of “Shrek 2” in seconds</label>
+            <input id="q30" type="text">
+        </p>
+
+        <p data-q="31" class="hidden">
+            <label for="q31">The first noun on the Wikipedia page for “entropy”</label>
+            <input id="q31" type="text">
+        </p>
+        <p data-q="32" class="hidden">
+            <label for="q32">The background color of the “Buy Now” button on Crocs.com</label>
+            <input id="q32" type="text">
+        </p>
+        <p data-q="33" class="hidden">
+            <label for="q33">Number of steps in Wikihow’s “How to Boil Water”</label>
+            <input id="q33" type="text">
+        </p>
+        <p data-q="34" class="hidden">
+            <label for="q34">First sentence on the “Laziness” Wikipedia page (first five words)</label>
+            <input id="q34" type="text">
+        </p>
+        <p data-q="35" class="hidden">
+            <label for="q35">The distance (in kilometers) from the ISS to Earth’s surface</label>
+            <input id="q35" type="text">
+        </p>
+        <p data-q="36" class="hidden">
+            <label for="q36">Number of Google results for “how to look busy on Zoom”</label>
+            <input id="q36" type="text">
+        </p>
+        <p data-q="37" class="hidden">
+            <label for="q37">What was the exact moment you realized you’re still only on the first third of this form?</label>
+            <input id="q37" type="text">
+        </p>
+        <p data-q="38" class="hidden">
+            <label for="q38">On a scale from 1 to “you sighed just now,” how ready are you to be done with this?</label>
+            <input id="q38" type="text">
+        </p>
+        <p data-q="39" class="hidden">
+            <label for="q39">At this point, do you feel like the “Continue” button is judging you? Enter your answer.</label>
+            <input id="q39" type="text">
+        </p>
+        <p data-q="40" class="hidden">
+            <label for="q40">According to public record, in what year was CAPTCHA invented?</label>
+            <input id="q40" type="text">
+        </p>
+    </section>
+
+    <p class="controls">
+        <button id="continueBtn" type="button" onclick="showNextQuestion()">Continue</button>
+    </p>
+    <p id="message" class="status" aria-live="polite"></p>
+
+    <section id="robotSection" class="hidden">
+        <hr>
+        <div class="robot-row captcha-card">
+            <div class="robot-controls">
+                <p class="captcha-line">
+                    <label class="checkbox-label">
+                        <input id="robotCheck" type="checkbox" aria-describedby="captcha-desc">
+                        <span class="checkbox-box" aria-hidden="true"></span>
+                        <span id="captcha-desc" class="checkbox-text">I’m not a robot</span>
+                    </label>
+                </p>
+            </div>
+
+            <img src="src/img.png" alt="gotcha" class="gotcha">
+        </div>
+    </section>
+
+    <p class="controls finish-row">
+        <button id="finishBtn" type="button" onclick="finishLogin()" class="hidden btn-full">Login</button>
+    </p>
+</main>
+
+<div id="devSwitch" class="dev-switch" tabindex="0" aria-label="Developer switch" title="Developer tools">
+    <button id="devTab" class="dev-tab" aria-hidden="true">Dev</button>
+    <div class="dev-panel" role="region" aria-label="Developer tools panel">
+        <button id="revealBtn" type="button">Reveal all questions</button>
+        <button id="autoCheckBtn" type="button">Auto-check robot</button>
+    </div>
+</div>
+
+<!-- added by Ilia -->
+<script src="../../globalHomePageAttach/global-functions.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
