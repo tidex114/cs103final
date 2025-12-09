@@ -6,7 +6,6 @@ MATERIAL NOT COVERED IN LECTURES
 :root { --ink-main: #111111; } – defines reusable CSS variables.
 .checkbox-label input[type="checkbox"] { opacity: 0; } – hides real checkbox for custom styling.
 .checkbox-box::after { ... } – draws the checkmark for the custom checkbox.
-transition: max-width 220ms ease; – animates dev panel opening.
 object-fit: contain; – keeps the “gotcha” image undistorted.
 input[type="text"], input[type="password"] – a grouped attribute selector; it applies the same CSS rules to both text inputs and password inputs at once.
 overflow: hidden – hides anything that visually spills outside the element’s box.
@@ -16,8 +15,6 @@ transform: rotate(-45deg) scale(0) – transforms the element by rotating it 45 
 :focus-within – a CSS pseudo-class that activates when any child element inside a container receives focus (e.g., a focused input inside a div).
 min-height: unset – removes any previously set min-height so the element can shrink naturally with its content.
 */
-
-
 
 :root {
     --ink-main: #111111;
@@ -42,8 +39,9 @@ body {
     margin: 0;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     padding: 4%;
     background: #ffffff;
     color: var(--ink-main);
@@ -52,7 +50,16 @@ body {
     overflow: auto;
 }
 
+footer {
+    width: 80vw;
+    max-width: 48vw;
+    margin: 1.6% auto 0 auto;
+    text-align: center;
+    color: var(--ink-muted);
+}
+
 .card {
+    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -133,7 +140,14 @@ input[type="password"]:focus {
     justify-content: flex-start;
 }
 
-button {
+
+
+button.hidden {
+    display: none;
+}
+
+/*minimal change to avoid overriding global home button */
+button:not(.global-home-btn) {
     padding: 1.4% 3%;
     border-radius: 1.2vw;
     border: 0.12vh solid var(--accent);
@@ -147,7 +161,7 @@ button.hidden {
     display: none;
 }
 
-button:hover {
+button:not(.global-home-btn):hover {
     background: #000000;
     color: #ffffff;
 }
@@ -365,70 +379,25 @@ img {
     }
 }
 
-.dev-switch {
-    position: fixed;
-    left: 1%;
-    bottom: 1%;
-    display: flex;
-    align-items: center;
-    gap: 0.8%;
-    z-index: 1200;
-    background: transparent;
-    border-radius: 0.6vw;
-    transition: transform 160ms ease;
-    outline: none;
-}
-
-.dev-tab {
+#globalHomeBtn,
+.global-home-btn {
+    width: 3vw;
+    height: 3vw;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 0.4%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3.6vw;
-    min-width: 34px;
-    height: 3.6vw;
-    min-height: 34px;
-    border-radius: 0.6vw;
-    border: 0.12vh solid var(--divider);
-    background: #ffffffcc;
-    color: var(--ink-main);
-    font-size: calc(2px + 0.9vw);
+    border-radius: 50%;
+    box-sizing: border-box;
+    line-height: 0;
 }
 
-.dev-panel {
-    max-width: 0;
-    overflow: hidden;
-    display: flex;
-    gap: 1%;
-    align-items: center;
-    transition: max-width 220ms ease, padding 220ms ease, opacity 200ms ease;
-    padding: 0 0;
-    opacity: 0;
-    border-radius: 0.6vw;
+@media (max-width: 768px) {
+    #globalHomeBtn,
+    .global-home-btn {
+        width: 12vw;
+        height: 12vw;
+    }
 }
-
-.dev-panel button {
-    padding: 1% 2%;
-    font-size: calc(2px + 0.7vw);
-    border-radius: 0.8vw;
-    border: 0.12vh solid var(--divider);
-    background: #fff;
-    color: var(--ink-main);
-}
-
-.dev-switch:hover .dev-panel,
-.dev-switch:focus-within .dev-panel {
-    max-width: 30vw;
-    padding: 1% 1.2%;
-    opacity: 1;
-    background: rgba(255,255,255,0.96);
-    border: 0.12vh solid var(--divider);
-}
-
-@media (max-width: 480px) {
-    .dev-switch { left: 3%; bottom: 2%; }
-    .dev-tab { width: 12vw; height: 12vw; min-width: unset; min-height: unset; }
-    .dev-switch:hover .dev-panel,
-    .dev-switch:focus-within .dev-panel { max-width: 70vw; }
-    .dev-panel button { font-size: calc(2px + 3vw); padding: 3% 4%; }
-}
-

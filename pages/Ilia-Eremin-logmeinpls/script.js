@@ -23,9 +23,6 @@ const all = document.querySelectorAll('p[data-q]'); — selects all <p> elements
 all.forEach(p => p.classList.remove('hidden')); — loops through all selected elements and removes the “hidden” class from each.
 if (robotSection) robotSection.classList.remove('hidden'); — checks if the element exists, then reveals it.
 if (message) { message.innerHTML = "..."; message.dataset.state = "info"; } — updates the message text and its data-state attribute if the element exists.
-document.addEventListener('DOMContentLoaded', function () { ... }); — waits for the document to finish loading before running setup code.
-revealBtn.addEventListener('click', revealAllQuestions); — attaches a click event listener to the reveal button.
-autoCheckBtn.addEventListener('click', autoCheckRobot); — attaches a click event listener to the auto-check button.
 () => { ... } — arrow function syntax, a compact way to write small callback functions.
 */
 
@@ -97,39 +94,3 @@ function finishLogin() {
         window.location.href = redirectUrl;
     }, 800);
 }
-
-function revealAllQuestions() {
-    const all = document.querySelectorAll('p[data-q]');
-    all.forEach(p => p.classList.remove('hidden'));
-    currentQuestion = 40;
-    const robotSection = document.getElementById('robotSection');
-    if (robotSection) robotSection.classList.remove('hidden');
-    const finishBtn = document.getElementById('finishBtn');
-    if (finishBtn) finishBtn.classList.remove('hidden');
-
-    const continueBtn = document.getElementById('continueBtn');
-    if (continueBtn) continueBtn.classList.add('hidden');
-}
-
-function autoCheckRobot() {
-    const robotCheck = document.getElementById('robotCheck');
-    if (robotCheck) robotCheck.checked = true;
-    const message = document.getElementById('message');
-    if (message) {
-        message.innerHTML = "Robot checkbox auto-checked.";
-        message.dataset.state = 'info';
-    }
-    const finishBtn = document.getElementById('finishBtn');
-    if (finishBtn) finishBtn.classList.remove('hidden');
-
-    const continueBtn = document.getElementById('continueBtn');
-    if (continueBtn) continueBtn.classList.add('hidden');
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const revealBtn = document.getElementById('revealBtn');
-    const autoCheckBtn = document.getElementById('autoCheckBtn');
-
-    if (revealBtn) revealBtn.addEventListener('click', revealAllQuestions);
-    if (autoCheckBtn) autoCheckBtn.addEventListener('click', autoCheckRobot);
-});
